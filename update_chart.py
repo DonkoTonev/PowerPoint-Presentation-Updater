@@ -28,4 +28,4 @@ def updateChart(pptx_file):
 
 if __name__ == "__main__":
     pptx_file_path = "C:\\Users\\admin\\OneDrive\\Desktop\\Presentation_example4.pptx"
-    extract_text_from_first_slide(pptx_file_path)
+    updateChart(pptx_file_path)
