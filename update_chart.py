@@ -2,7 +2,7 @@ from pptx import Presentation
 from pptx.chart.data import CategoryChartData
 
 
-def extract_text_from_first_slide(pptx_file):
+def updateChart(pptx_file):
     presentation = Presentation(pptx_file)
 
     second_slide = presentation.slides[1]
