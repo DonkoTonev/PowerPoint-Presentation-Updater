@@ -35,6 +35,14 @@ def update_presentation(presentation_path):
     for shape in second_slide.shapes:
         if shape.has_chart:
             chart = shape.chart
+            
+            if chart.has_title:
+                chart.chart_title.text_frame.text = "Your New Chart Title"
+            else:
+                title = chart.chart_title.text_frame.add_paragraph()
+                title.text = "Your New Chart Title"
+                chart.has_title = True
+                
             chart_data = CategoryChartData()
 
             # Read data from CSV file
