@@ -20,43 +20,44 @@ def update_presentation(presentation_path):
 
     # Update the second slide with a new chart
     second_slide = presentation.slides[1]
+    
+    
+    # Function to read data from CSV file
+    def read_csv(file_path):
+        with open(file_path, 'r') as csv_file:
+            reader = csv.DictReader(csv_file)
+            data = {row['Category']: {key: float(value) for key, value in row.items() if key != 'Category'} for row in reader}
+        return data
+
+    # Replace 'your_csv_file_path.csv' with the actual path to your CSV file
+    csv_file_path = 'chart.CSV'
 
     for shape in second_slide.shapes:
         if shape.has_chart:
             chart = shape.chart
             chart_data = CategoryChartData()
-            chart_data.categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4']
-            chart_data.add_series('Series 1', (10, 10, 10, 10))
-            chart_data.add_series('Series 2', (10, 10, 10, 10))
-            chart_data.add_series('Series 3', (10, 10, 10, 10))
+
+            # Read data from CSV file
+            csv_data = read_csv(csv_file_path)
+
+            # Extract categories and series from CSV data
+            categories = list(csv_data.keys())
+            
+            # Extract series names dynamically from the first row of CSV file
+            series_names = list(next(iter(csv_data.values())).keys())
+            chart_data.categories = categories
+
+            # Add series to chart data
+            for series_name in series_names:
+                series_values = [csv_data[category][series_name] for category in categories]
+                chart_data.add_series(series_name, series_values)
+
+            # Replace chart data with data from CSV
             chart.replace_data(chart_data)
             break
 
     # Update the third slide with a new table cell
     third_slide = presentation.slides[2]
-
-    # for shape in third_slide.shapes:
-    #     if shape.has_table:
-    #         cell = shape.table.cell(1, 0)
-    #         cell.text = 'Pina Colada'
-
-    #         # Set the font size to a smaller value, e.g., 10 points
-    #         cell.text_frame.paragraphs[0].runs[0].font.size = Pt(10)
-
-    #         break
-    
-    # for shape in third_slide.shapes:
-    # # Check if the shape has a table
-    #     if shape.has_table:
-    #         # Iterate through rows and columns of the table
-    #         for row in shape.table.rows:
-    #             for cell in row.cells:
-    #                 # Set the text in each cell to 'Pina Colada'
-    #                 cell.text = 'Pina Colada'
-
-    #                 # Set the font size to 10 points
-    #                 cell.text_frame.paragraphs[0].runs[0].font.size = Pt(10)
-    
     
     csv_file_path = 'data.csv'  # Update with your CSV file path
     with open(csv_file_path, 'r') as csv_file:
