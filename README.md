@@ -1,4 +1,4 @@
-This Python script allows you to update various elements within a PowerPoint presentation using data from an Excel file or CSV. It automates the process of updating the title, subtitle, master slide logo, chart data, table data, and text boxes within the presentation.
+This Python script allows you to update various elements within a PowerPoint presentation using data from a CSV file. It automates the process of updating the title, subtitle, master slide logo, chart data, table data, and text boxes within the presentation.
 
 
 ## Features
@@ -17,20 +17,9 @@ This Python script allows you to update various elements within a PowerPoint pre
     pip install python-pptx
     ```
 
-2. Prepare your PowerPoint template (.pptx) and Excel file or CSV containing the updated data.
+2. Prepare your PowerPoint template (.pptx) and CSV containing the updated data.
 
-3. Ensure that your Excel file or CSV has columns corresponding to the elements you want to update (title, subtitle, chart data, table data, etc.).
+3. Run the script.
+   
+4. The script will update the presentation elements with the data provided in the Excel file or CSV and save the updated PowerPoint file.
 
-4. Run the script:
-    ```bash
-    python powerpoint_updater.py --presentation <presentation_file> --data <data_file>
-    ```
-
-    Replace `<presentation_file>` with the path to your PowerPoint template file and `<data_file>` with the path to your Excel file or CSV.
-
-5. The script will update the presentation elements with the data provided in the Excel file or CSV and save the updated PowerPoint file.
-
-## Example
-
-```bash
-python powerpoint_updater.py --presentation template.pptx --data data.xlsx
