@@ -42,7 +42,7 @@ def update_presentation(presentation_path):
         return data
 
     # Replace 'your_csv_file_path.csv' with the actual path to your CSV file
-    csv_file_path = 'chart.CSV'
+    csv_file_path = 'chart.csv'
 
     for shape in second_slide.shapes:
         if shape.has_chart:
@@ -129,5 +129,5 @@ def update_presentation(presentation_path):
 
 
 if __name__ == "__main__":
-    pptx_file_path = "C:\\Users\\admin\\OneDrive\\Desktop\\Presentation_example4.pptx"
+    pptx_file_path = "C:\\Users\\admin\\OneDrive\\Desktop\\Presentation_to_be_updated.pptx"
     update_presentation(pptx_file_path)
