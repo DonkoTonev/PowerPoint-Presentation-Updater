@@ -1,0 +1,1 @@
+This Python script allows users to update specific elements within a PowerPoint presentation file (.pptx) using data provided in an Excel (.xlsx) or CSV file. It automates the process of modifying elements such as title, subtitle, master slide logo, chart data, table data, and text boxes within the presentation.
