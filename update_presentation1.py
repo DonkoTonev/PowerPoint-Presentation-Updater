@@ -22,7 +22,7 @@ def update_presentation(presentation_path):
     subtitle = first_slide.placeholders[1]  # Assuming the subtitle is the second placeholder
     subtitle.text = "New Subtitle"
     
-    pic = "download.png"
+    pic = "logo.png"
     
    # left_inch = slide_width - width_inch  # 1 inch from the right edge
     top_inch = 0   # 1 inch from the top
